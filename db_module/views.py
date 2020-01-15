@@ -1,11 +1,18 @@
 from django.core.paginator import Paginator
 from django.db import transaction
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from rest_framework.views import APIView
 from django.utils import timezone
 
 from db_module import models
 from utils.get_number import MySnow
+
+
+
+def HelloWorld(request):
+    print("测试")
+    
+    return HttpResponse("nmsl")
 
 
 class CreateUnit(APIView):
@@ -218,11 +225,11 @@ class CreateMerchant(APIView):
         except Exception as w :
             return JsonResponse({'code': -1, 'msg': '请求失败', 'data': None})
 
-    def delete(self,request,*args,**kwargs):
-        id = self.request.data.get('id')
-        assert id ,(-101,'id是必传字段')
-        try:
-            with transaction.atomic():
+    # def delete(self,request,*args,**kwargs):
+    #     id = self.request.data.get('id')
+    #     assert id ,(-101,'id是必传字段')
+    #     try:
+    #         with transaction.atomic():
 
 
 

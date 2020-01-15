@@ -6,4 +6,5 @@ urlpatterns = [
     re_path('^create_unit/$',v.CreateUnit.as_view()),
     re_path('^create_material/$',v.CreateRawMaterial.as_view()),
     re_path('^create_merchant/$',v.CreateMerchant.as_view()),
+    re_path( "^helloworld", v.HelloWorld )
 ]
